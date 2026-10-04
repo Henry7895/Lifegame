@@ -5,9 +5,9 @@ import games from "../games/all.js";
 
 const root=process.cwd();
 const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
-if(!index.includes('href="./styles.css"'))throw new Error("index.html missing stylesheet");
-if(!index.includes('href="./manifest.webmanifest"'))throw new Error("index.html missing manifest");
-if(!index.includes("import('./app.js')"))throw new Error("index.html missing app bootstrap");
+if(!/<link\s+rel="stylesheet"\s+href="\.\/styles\.css(?:\?[^"]*)?"/.test(index))throw new Error("index.html missing stylesheet");
+if(!/<link\s+rel="manifest"\s+href="\.\/manifest\.webmanifest(?:\?[^"]*)?"/.test(index))throw new Error("index.html missing manifest");
+if(!index.includes("import('./app.js?v=26aeadb')"))throw new Error("index.html missing versioned app bootstrap");
 
 if(games.length!==60)throw new Error("Expected 60 games, got "+games.length);
 const ids=new Set(games.map(g=>g.id)),slugs=new Set(games.map(g=>g.slug));
