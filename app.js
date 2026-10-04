@@ -28,6 +28,8 @@ let remoteRoom = null;
 let remoteOnline = [];
 let remoteChat = [];
 let contentRoot = null;
+let activeGameSession = null;
+let activeGameKeyHandler = null;
 
 function art(game) {
   const palette = Array.isArray(game.gradient) && game.gradient.length >= 2 ? game.gradient : ['#7C5CFF', '#00D4FF'];
@@ -403,13 +405,16 @@ async function playPage(root, game) {
       submitScore(game.slug, profile.get().name, result.score, result.duration);
     });
 
-    const onKey = (event) => {
+    activeGameSession = session;
+    activeGameKeyHandler = (event) => {
       if (event.key !== 'Escape') return;
       session.destroy();
+      activeGameSession = null;
+      window.removeEventListener('keydown', activeGameKeyHandler);
+      activeGameKeyHandler = null;
       go('game/' + encodeURIComponent(game.slug));
     };
-
-    window.addEventListener('keydown', onKey, { once: true });
+    window.addEventListener('keydown', activeGameKeyHandler);
   } catch (error) {
     console.error('LifeGame runtime error:', error);
     root.querySelector('#gameHost').innerHTML = `
@@ -838,9 +843,16 @@ function openSettings() {
 }
 
 function render() {
-  const root = mountShell();
   const currentRoute = route();
-
+  if (currentRoute.name !== 'play' && activeGameSession) {
+    activeGameSession.destroy();
+    activeGameSession = null;
+  }
+  if (currentRoute.name !== 'play' && activeGameKeyHandler) {
+    window.removeEventListener('keydown', activeGameKeyHandler);
+    activeGameKeyHandler = null;
+  }
+  const root = mountShell();
   const routeLinks = root.querySelectorAll('#nav a');
   const navTarget = currentRoute.name === 'home' ? '#home' : (currentRoute.name === 'games' || currentRoute.name === 'game' || currentRoute.name === 'play') ? '#games' : '#'+currentRoute.name;
   routeLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === navTarget));
