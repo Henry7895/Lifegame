@@ -1,7 +1,10 @@
 import games from "../games/all.js";
-if(games.length!==50)throw new Error("Expected 50 games, got "+games.length);
+if(games.length!==55)throw new Error("Expected 55 games, got "+games.length);
 const ids=new Set(games.map(g=>g.id)),slugs=new Set(games.map(g=>g.slug));
-if(ids.size!==50||slugs.size!==50)throw new Error("Game ids/slugs must be unique");
-for(const g of games){for(const key of ["id","slug","title","description","genre","mechanic","playersMin","playersMax","multiplayer","featured","difficulty","rating","playCount","gradient"]){if(g[key]===undefined)throw new Error("Missing "+key+" in "+g.slug)}} 
-if(games.filter(g=>g.multiplayer).length<5)throw new Error("Expected multiplayer catalog");
-console.log("LifeGame validation OK: 50 games");
+if(ids.size!==55||slugs.size!==55)throw new Error("Game ids/slugs must be unique");
+for(const g of games){for(const key of ["id","slug","title","description","genre","mechanic","playersMin","playersMax","multiplayer","featured","difficulty","rating","playCount","gradient"]){if(g[key]===undefined)throw new Error("Missing "+key+" in "+g.slug)}}
+if(games.filter(g=>g.multiplayer).length<8)throw new Error("Expected multiplayer catalog");
+if(!games.some(g=>g.slug==="beat-duel"&&g.mechanic==="rhythm"))throw new Error("Beat Duel missing");
+if(!games.some(g=>g.slug==="snake-rush"&&g.mechanic==="snake"))throw new Error("Snake Rush missing");
+if(!games.some(g=>g.slug==="2048-fusion"&&g.mechanic==="merge"))throw new Error("2048 Fusion missing");
+console.log("LifeGame validation OK: "+games.length+" games.");
