@@ -1,0 +1,1 @@
+export default {id:"060",slug:"chaos-stack",title:"Chaos Stack",description:"Empile des blocs qui accélèrent à chaque niveau. Une erreur et tout s'écroule.",genre:"Challenges",mechanic:"stack",playersMin:1,playersMax:2,multiplayer:true,featured:true,challenge:true,difficulty:"Difficile",rating:4.7,playCount:0,gradient:["#35D07F","#FFC857"],tags:["stack","arcade","duel"]}
