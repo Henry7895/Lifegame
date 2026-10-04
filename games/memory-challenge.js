@@ -1,0 +1,1 @@
+export default {id:"014",slug:"memory-challenge",title:"Memory Challenge",description:"Retourne les cartes et forme toutes les paires.",genre:"Casual",mechanic:"memory",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Facile",rating:4.5,playCount:2035,gradient:["#7C5CFF","#35D07F"],tags:["mémoire","cartes"]};

@@ -1,0 +1,1 @@
+export default {id:"050",slug:"space-raiders",title:"Space Raiders",description:"Traverse un champ d'astéroïdes.",genre:"Action",mechanic:"lanes",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.6,playCount:6607,gradient:["#7C5CFF","#35D07F"],tags:["espace","astéroïdes"]};

@@ -1,0 +1,1 @@
+export default {id:"012",slug:"tower-stack",title:"Tower Stack",description:"Empile les blocs avec le meilleur alignement.",genre:"Casual",mechanic:"stack",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.8,playCount:1781,gradient:["#35D07F","#00D4FF"],tags:["arcade","stack"]};

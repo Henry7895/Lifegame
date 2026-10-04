@@ -1,0 +1,1 @@
+export default {id:"043",slug:"drift-legends",title:"Drift Legends",description:"Déclenche ton drift au timing parfait.",genre:"Racing",mechanic:"reaction",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Difficile",rating:4.9,playCount:5718,gradient:["#FFC857","#FF4D67"],tags:["drift","timing"]};

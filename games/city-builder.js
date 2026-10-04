@@ -1,0 +1,1 @@
+export default {id:"027",slug:"city-builder",title:"City Builder",description:"Construis une ville en empilant ses quartiers.",genre:"Simulation",mechanic:"stack",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.8,playCount:3686,gradient:["#7C5CFF","#00D4FF"],tags:["ville","construction"]};

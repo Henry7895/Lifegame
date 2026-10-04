@@ -1,0 +1,1 @@
+export default {id:"011",slug:"car-mechanic",title:"Car Mechanic",description:"Remets les pièces du moteur dans le bon ordre.",genre:"Simulation",mechanic:"puzzle",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:1654,gradient:["#00D4FF","#7C5CFF"],tags:["mécanique","puzzle"]};

@@ -1,0 +1,1 @@
+import games from "./all.js";export {games};export const bySlug=slug=>games.find(g=>g.slug===slug);

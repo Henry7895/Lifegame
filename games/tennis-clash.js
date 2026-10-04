@@ -1,0 +1,1 @@
+export default {id:"019",slug:"tennis-clash",title:"Tennis Clash",description:"Retourne la balle au meilleur moment.",genre:"Sports",mechanic:"reaction",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Moyen",rating:4.5,playCount:2670,gradient:["#FFC857","#FF4D67"],tags:["tennis","réflexes"]};

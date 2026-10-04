@@ -1,0 +1,1 @@
+export default {id:"025",slug:"battle-royale-lite",title:"Battle Royale Lite",description:"Survis à une zone qui se referme.",genre:"Multiplayer",mechanic:"survival",playersMin:1,playersMax:12,multiplayer:true,featured:false,difficulty:"Difficile",rating:4.6,playCount:3432,gradient:["#FFC857","#FF4D67"],tags:["battle-royale","arène"]};

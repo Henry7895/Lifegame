@@ -1,0 +1,1 @@
+export default {id:"049",slug:"ninja-arena",title:"Ninja Arena",description:"Enchaîne les frappes au rythme.",genre:"Action",mechanic:"rhythm",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Difficile",rating:4.5,playCount:6480,gradient:["#FFC857","#FF4D67"],tags:["ninja","combo"]};

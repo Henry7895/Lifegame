@@ -1,0 +1,1 @@
+export default {id:"026",slug:"team-survival",title:"Team Survival",description:"Coordonne ton équipe pour protéger la base.",genre:"Multiplayer",mechanic:"defense",playersMin:1,playersMax:10,multiplayer:true,featured:false,difficulty:"Difficile",rating:4.7,playCount:3559,gradient:["#7C5CFF","#35D07F"],tags:["coop","équipe"]};

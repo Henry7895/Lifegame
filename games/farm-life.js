@@ -1,0 +1,1 @@
+export default {id:"009",slug:"farm-life",title:"Farm Life",description:"Récolte les cultures et remplis ton panier.",genre:"Simulation",mechanic:"collect",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Facile",rating:4.5,playCount:1400,gradient:["#7C5CFF","#00D4FF"],tags:["ferme","récolte"]};

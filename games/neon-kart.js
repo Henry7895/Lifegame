@@ -1,0 +1,1 @@
+export default {id:"039",slug:"neon-kart",title:"Neon Kart",description:"Fonce sur une piste néon sans collision.",genre:"Racing",mechanic:"lanes",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Facile",rating:4.5,playCount:5210,gradient:["#7C5CFF","#00D4FF"],tags:["kart","néon"]};

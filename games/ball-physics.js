@@ -1,0 +1,1 @@
+export default {id:"015",slug:"ball-physics",title:"Ball Physics",description:"Garde la balle en jeu le plus longtemps possible.",genre:"Casual",mechanic:"paddle",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.6,playCount:2162,gradient:["#7C5CFF","#00D4FF"],tags:["balle","physique"]};

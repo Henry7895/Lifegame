@@ -1,0 +1,1 @@
+export default {id:"035",slug:"apocalypse-city",title:"Apocalypse City",description:"Défends ton refuge au cœur d'une ville abandonnée.",genre:"Survival",mechanic:"defense",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Difficile",rating:4.6,playCount:4702,gradient:["#00D4FF","#7C5CFF"],tags:["apocalypse","refuge"]};

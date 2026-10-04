@@ -1,0 +1,1 @@
+export default {id:"047",slug:"alien-attack",title:"Alien Attack",description:"Protège ton réacteur contre l'attaque alien.",genre:"Action",mechanic:"defense",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.8,playCount:6226,gradient:["#00D4FF","#7C5CFF"],tags:["aliens","défense"]};

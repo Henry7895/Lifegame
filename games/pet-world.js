@@ -1,0 +1,1 @@
+export default {id:"010",slug:"pet-world",title:"Pet World",description:"Retrouve les jouets préférés de chaque animal.",genre:"Simulation",mechanic:"memory",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.6,playCount:1527,gradient:["#FF4D67","#7C5CFF"],tags:["animaux","mémoire"]};

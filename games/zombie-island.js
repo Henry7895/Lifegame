@@ -1,0 +1,1 @@
+export default {id:"032",slug:"zombie-island",title:"Zombie Island",description:"Traverse une île infectée sans te faire encercler.",genre:"Survival",mechanic:"dodge",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Difficile",rating:4.8,playCount:4321,gradient:["#7C5CFF","#35D07F"],tags:["zombies","évasion"]};

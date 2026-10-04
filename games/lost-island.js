@@ -1,0 +1,1 @@
+export default {id:"036",slug:"lost-island",title:"Lost Island",description:"Récupère les artefacts avant de quitter l'île.",genre:"Adventure",mechanic:"collect",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:4829,gradient:["#35D07F","#00D4FF"],tags:["île","exploration"]};

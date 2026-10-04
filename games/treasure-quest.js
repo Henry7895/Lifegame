@@ -1,0 +1,1 @@
+export default {id:"037",slug:"treasure-quest",title:"Treasure Quest",description:"Traverse le temple et retrouve le coffre ancien.",genre:"Adventure",mechanic:"maze",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.8,playCount:4956,gradient:["#FFC857","#FF4D67"],tags:["trésor","temple"]};

@@ -1,0 +1,1 @@
+export default {id:"034",slug:"ocean-survival",title:"Ocean Survival",description:"Pêche et garde le cap de ton bateau.",genre:"Survival",mechanic:"fishing",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Facile",rating:4.5,playCount:4575,gradient:["#FF4D67","#7C5CFF"],tags:["océan","bateau"]};

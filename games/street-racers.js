@@ -1,0 +1,1 @@
+export default {id:"042",slug:"street-racers",title:"Street Racers",description:"Évite le trafic et bats ton record.",genre:"Racing",mechanic:"lanes",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.8,playCount:5591,gradient:["#35D07F","#00D4FF"],tags:["racing","trafic"]};

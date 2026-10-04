@@ -1,0 +1,1 @@
+export default {id:"031",slug:"island-survival",title:"Island Survival",description:"Survis aux vagues qui envahissent ton île.",genre:"Survival",mechanic:"survival",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:4194,gradient:["#FFC857","#FF4D67"],tags:["île","vagues"]};

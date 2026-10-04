@@ -1,0 +1,1 @@
+export default {id:"024",slug:"murder-mystery",title:"Murder Mystery",description:"Enquête et identifie le coupable dans la room.",genre:"Multiplayer",mechanic:"target",playersMin:1,playersMax:10,multiplayer:true,featured:true,difficulty:"Difficile",rating:4.5,playCount:3305,gradient:["#35D07F","#00D4FF"],tags:["social","enquête"]};

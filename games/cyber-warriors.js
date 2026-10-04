@@ -1,0 +1,1 @@
+export default {id:"045",slug:"cyber-warriors",title:"Cyber Warriors",description:"Désactive les drones avant la saturation.",genre:"Action",mechanic:"target",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.6,playCount:5972,gradient:["#7C5CFF","#00D4FF"],tags:["cyber","drones"]};

@@ -1,0 +1,1 @@
+export default {id:"048",slug:"dungeon-fighter",title:"Dungeon Fighter",description:"Franchis le donjon et ses pièges.",genre:"Action",mechanic:"runner",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.9,playCount:6353,gradient:["#35D07F","#00D4FF"],tags:["donjon","saut"]};

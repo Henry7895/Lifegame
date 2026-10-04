@@ -1,0 +1,1 @@
+export default {id:"020",slug:"mini-golf",title:"Mini Golf",description:"Vise le trou avec le moins de coups possible.",genre:"Sports",mechanic:"target",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.6,playCount:2797,gradient:["#7C5CFF","#35D07F"],tags:["golf","précision"]};

@@ -1,0 +1,1 @@
+export default {id:"041",slug:"sky-racing",title:"Sky Racing",description:"Pilote un bolide aérien entre les obstacles.",genre:"Racing",mechanic:"dodge",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:5464,gradient:["#00D4FF","#7C5CFF"],tags:["ciel","vitesse"]};

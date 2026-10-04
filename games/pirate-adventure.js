@@ -1,0 +1,1 @@
+export default {id:"030",slug:"pirate-adventure",title:"Pirate Adventure",description:"Pêche le meilleur butin avant le départ du navire.",genre:"Adventure",mechanic:"fishing",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.6,playCount:4067,gradient:["#35D07F","#00D4FF"],tags:["pirate","pêche"]};

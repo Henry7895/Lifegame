@@ -1,0 +1,1 @@
+export default {id:"029",slug:"dragon-valley",title:"Dragon Valley",description:"Protège la vallée des dragons hostiles.",genre:"Adventure",mechanic:"target",playersMin:1,playersMax:1,multiplayer:false,featured:true,difficulty:"Difficile",rating:4.5,playCount:3940,gradient:["#00D4FF","#7C5CFF"],tags:["dragon","fantasy"]};

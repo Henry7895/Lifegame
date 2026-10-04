@@ -1,0 +1,1 @@
+export default {id:"013",slug:"color-rush",title:"Color Rush",description:"Teste tes réflexes sur des séquences de couleur.",genre:"Casual",mechanic:"reaction",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Facile",rating:4.9,playCount:1908,gradient:["#FFC857","#FF4D67"],tags:["couleur","réflexes"]};

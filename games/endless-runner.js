@@ -1,0 +1,1 @@
+export default {id:"016",slug:"endless-runner",title:"Endless Runner",description:"Cours sans fin, récupère les pièces et évite les pièges.",genre:"Casual",mechanic:"runner",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:2289,gradient:["#FF4D67","#7C5CFF"],tags:["runner","score"]};

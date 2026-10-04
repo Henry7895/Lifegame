@@ -1,0 +1,1 @@
+export default {id:"040",slug:"offroad-rush",title:"Offroad Rush",description:"Saute les rochers sur une piste tout-terrain.",genre:"Racing",mechanic:"runner",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.6,playCount:5337,gradient:["#FF4D67","#7C5CFF"],tags:["offroad","saut"]};

@@ -1,0 +1,1 @@
+export default {id:"046",slug:"zombie-survival",title:"Zombie Survival",description:"Tiens face aux vagues de zombies.",genre:"Action",mechanic:"survival",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Difficile",rating:4.7,playCount:6099,gradient:["#FF4D67","#7C5CFF"],tags:["zombies","survie"]};

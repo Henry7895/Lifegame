@@ -1,0 +1,1 @@
+export default {id:"017",slug:"football-arena",title:"Football Arena",description:"Marque une série de penalties dans les lucarnes.",genre:"Sports",mechanic:"penalty",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.8,playCount:2416,gradient:["#00D4FF","#7C5CFF"],tags:["football","penalty"]};

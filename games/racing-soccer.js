@@ -1,0 +1,1 @@
+export default {id:"021",slug:"racing-soccer",title:"Racing Soccer",description:"Cours avec le ballon et traverse les portes.",genre:"Sports",mechanic:"lanes",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.7,playCount:2924,gradient:["#7C5CFF","#00D4FF"],tags:["football","racing"]};

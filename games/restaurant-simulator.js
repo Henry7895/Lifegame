@@ -1,0 +1,1 @@
+export default {id:"028",slug:"restaurant-simulator",title:"Restaurant Simulator",description:"Prépare les commandes le plus vite possible.",genre:"Simulation",mechanic:"typing",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.9,playCount:3813,gradient:["#FF4D67","#7C5CFF"],tags:["restaurant","gestion"]};

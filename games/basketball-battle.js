@@ -1,0 +1,1 @@
+export default {id:"018",slug:"basketball-battle",title:"Basketball Battle",description:"Synchronise tes tirs avec la zone parfaite.",genre:"Sports",mechanic:"rhythm",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.9,playCount:2543,gradient:["#35D07F","#00D4FF"],tags:["basketball","rythme"]};

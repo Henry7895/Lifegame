@@ -1,0 +1,1 @@
+export default {id:"022",slug:"hide-and-seek",title:"Hide & Seek",description:"Cache-toi et échappe au seeker dans la room.",genre:"Multiplayer",mechanic:"maze",playersMin:1,playersMax:8,multiplayer:true,featured:false,difficulty:"Moyen",rating:4.8,playCount:3051,gradient:["#FF4D67","#7C5CFF"],tags:["social","cache-cache"]};

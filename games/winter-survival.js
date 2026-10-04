@@ -1,0 +1,1 @@
+export default {id:"033",slug:"winter-survival",title:"Winter Survival",description:"Récupère des ressources avant la prochaine tempête.",genre:"Survival",mechanic:"collect",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.9,playCount:4448,gradient:["#7C5CFF","#00D4FF"],tags:["hiver","ressources"]};

@@ -1,0 +1,1 @@
+export default {id:"023",slug:"prop-hunt",title:"Prop Hunt",description:"Déplace-toi discrètement et évite la détection.",genre:"Multiplayer",mechanic:"dodge",playersMin:1,playersMax:8,multiplayer:true,featured:false,difficulty:"Moyen",rating:4.9,playCount:3178,gradient:["#00D4FF","#7C5CFF"],tags:["social","discrétion"]};

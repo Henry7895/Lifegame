@@ -1,0 +1,1 @@
+export default {id:"038",slug:"jungle-explorer",title:"Jungle Explorer",description:"Franchis les pièges de la jungle.",genre:"Adventure",mechanic:"runner",playersMin:1,playersMax:1,multiplayer:false,featured:false,difficulty:"Moyen",rating:4.9,playCount:5083,gradient:["#7C5CFF","#35D07F"],tags:["jungle","obstacles"]};
