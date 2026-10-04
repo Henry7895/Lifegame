@@ -5,9 +5,9 @@ import games from "../games/all.js";
 
 const root=process.cwd();
 const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
-for(const required of ['href="./styles.css"','href="./manifest.webmanifest"','import("./app.js")']){
-  if(!index.includes(required))throw new Error("index.html missing "+required);
-}
+if(!index.includes('href="./styles.css"'))throw new Error("index.html missing stylesheet");
+if(!index.includes('href="./manifest.webmanifest"'))throw new Error("index.html missing manifest");
+if(!index.includes("import('./app.js')"))throw new Error("index.html missing app bootstrap");
 
 if(games.length!==60)throw new Error("Expected 60 games, got "+games.length);
 const ids=new Set(games.map(g=>g.id)),slugs=new Set(games.map(g=>g.slug));
@@ -38,7 +38,6 @@ for(const base of roots){
     walk(base);
   }
 }
-
 for(const file of files)execFileSync(process.execPath,["--check",file],{stdio:"inherit"});
 
 const allSource=fs.readFileSync(path.join(root,"games","all.js"),"utf8");
