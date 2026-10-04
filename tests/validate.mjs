@@ -3,6 +3,12 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import games from "../games/all.js";
 
+const root=process.cwd();
+const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
+for(const required of ['href="./styles.css"','href="./manifest.webmanifest"','import("./app.js")']){
+  if(!index.includes(required))throw new Error("index.html missing "+required);
+}
+
 if(games.length!==60)throw new Error("Expected 60 games, got "+games.length);
 const ids=new Set(games.map(g=>g.id)),slugs=new Set(games.map(g=>g.slug));
 if(ids.size!==60||slugs.size!==60)throw new Error("Game ids/slugs must be unique");
@@ -18,19 +24,27 @@ if(!games.some(g=>g.slug==="2048-fusion"&&g.mechanic==="merge"))throw new Error(
 
 const roots=[path.resolve("app.js"),path.resolve("platform"),path.resolve("games")];
 const files=[];
-for(const root of roots){
-  const stat=fs.statSync(root);
-  if(stat.isFile())files.push(root);
+for(const base of roots){
+  const stat=fs.statSync(base);
+  if(stat.isFile())files.push(base);
   else{
     const walk=(dir)=>{
       for(const name of fs.readdirSync(dir)){
-        const p=path.join(dir,name),s=fs.statSync(p);
-        if(s.isDirectory())walk(p);
-        else if(p.endsWith(".js"))files.push(p);
+        const file=path.join(dir,name),current=fs.statSync(file);
+        if(current.isDirectory())walk(file);
+        else if(file.endsWith(".js"))files.push(file);
       }
     };
-    walk(root);
+    walk(base);
   }
 }
+
 for(const file of files)execFileSync(process.execPath,["--check",file],{stdio:"inherit"});
-console.log("LifeGame validation OK: "+games.length+" games and "+files.length+" JavaScript files parsed.");
+
+const allSource=fs.readFileSync(path.join(root,"games","all.js"),"utf8");
+const importNames=[...allSource.matchAll(/from ["']\.\/([^"']+\.js)["']/g)].map(match=>match[1]);
+for(const relative of importNames){
+  if(!fs.existsSync(path.join(root,"games",relative)))throw new Error("Missing game module "+relative);
+}
+
+console.log("LifeGame validation OK: "+games.length+" games, "+files.length+" JavaScript files and GitHub Pages bootstrap verified.");
