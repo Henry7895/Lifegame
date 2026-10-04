@@ -817,7 +817,6 @@ async function sendChat() {
   else {
     const code = localRooms.current();
     if (code) localRooms.chat(code, profile.get().name, message);
-    if (route().name === 'rooms') render();
   }
   if (input) input.value = '';
 }
@@ -892,7 +891,10 @@ window.addEventListener('lifegame:profile', () => {
   if (route().name !== 'play') render();
 });
 window.addEventListener('lifegame:rooms', () => {
-  if (route().name === 'rooms' && !remoteRoom) render();
+  if (remoteRoom || route().name !== 'rooms') return;
+  const activeLocal = localRooms.get(localRooms.current());
+  if (activeLocal?.status === 'PLAYING') go('play/' + encodeURIComponent(activeLocal.gameSlug));
+  else render();
 });
 window.addEventListener('lifegame:room-chat', () => {
   if (route().name === 'rooms' && !remoteRoom) render();
