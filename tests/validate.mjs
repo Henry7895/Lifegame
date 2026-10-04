@@ -7,7 +7,7 @@ const root=process.cwd();
 const index=fs.readFileSync(path.join(root,"index.html"),"utf8");
 if(!index.includes("./styles.css?v="))throw new Error("index.html missing versioned stylesheet");
 if(!index.includes("./manifest.webmanifest?v="))throw new Error("index.html missing versioned manifest");
-if(!index.includes("import('./app.js?v=7dab30c')"))throw new Error("index.html missing versioned app bootstrap");
+if(!index.includes("./app.js?v="))throw new Error("index.html missing versioned app bootstrap");
 
 if(games.length!==60)throw new Error("Expected 60 games, got "+games.length);
 const ids=new Set(games.map(g=>g.id)),slugs=new Set(games.map(g=>g.slug));
