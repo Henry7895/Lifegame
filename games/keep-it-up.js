@@ -1,0 +1,1 @@
+export default {id:"055",slug:"keep-it-up",title:"Keep It Up",description:"Garde la balle en l'air le plus longtemps possible et vise le combo maximum.",genre:"Challenges",mechanic:"paddle",playersMin:1,playersMax:1,multiplayer:false,featured:true,challenge:true,difficulty:"Moyen",rating:4.7,playCount:0,gradient:["#00D4FF","#7C5CFF"],tags:["ball","challenge","score"]};
