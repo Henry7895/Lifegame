@@ -1,0 +1,3 @@
+import http from 'node:http';import fs from 'node:fs';import path from 'node:path';
+const root=process.cwd(),port=Number(process.env.PORT||4173),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json'};
+http.createServer((q,r)=>{let u=decodeURIComponent((q.url||'/').split('?')[0]);if(u==='/')u='/index.html';const f=path.normalize(path.join(root,u));if(!f.startsWith(root)){r.writeHead(403);return r.end('Forbidden')}fs.readFile(f,(e,b)=>{if(e){r.writeHead(404);return r.end('Not found')}r.writeHead(200,{'content-type':types[path.extname(f)]||'application/octet-stream'});r.end(b)})}).listen(port,()=>console.log('LifeGame: http://localhost:'+port));
