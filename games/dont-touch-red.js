@@ -1,0 +1,1 @@
+export default {id:"057",slug:"dont-touch-red",title:"Don't Touch Red",description:"Déplace-toi comme un fou, mais ne touche jamais les zones rouges.",genre:"Challenges",mechanic:"dodge",playersMin:1,playersMax:4,multiplayer:true,featured:true,challenge:true,difficulty:"Moyen",rating:4.7,playCount:0,gradient:["#FF4D67","#7C5CFF"],tags:["réflexes","éviter","challenge"]}
