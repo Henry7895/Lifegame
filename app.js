@@ -30,29 +30,35 @@ let remoteChat = [];
 let contentRoot = null;
 
 function art(game) {
-  if (game.art) return game.art;
-  const palette = Array.isArray(game.gradient) && game.gradient.length >= 2
-    ? game.gradient
-    : ['#7C5CFF', '#00D4FF'];
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-        <stop stop-color="${palette[0]}"/>
-        <stop offset="1" stop-color="${palette[1]}"/>
-      </linearGradient>
-    </defs>
-    <rect width="900" height="560" rx="36" fill="url(#g)"/>
-    <circle cx="760" cy="100" r="190" fill="#fff" opacity=".11"/>
-    <circle cx="90" cy="520" r="230" fill="#000" opacity=".12"/>
-    <path d="M40 405C180 275 315 485 470 315S730 215 860 330" fill="none" stroke="#fff" stroke-width="9" stroke-opacity=".23"/>
-    <text x="58" y="145" fill="#fff" font-family="Arial,sans-serif" font-size="44" font-weight="800">${esc(game.title)}</text>
-    <text x="58" y="190" fill="#fff" font-family="Arial,sans-serif" font-size="21" opacity=".84">${esc(game.genre)}</text>
-  </svg>`;
-
+  const palette = Array.isArray(game.gradient) && game.gradient.length >= 2 ? game.gradient : ['#7C5CFF', '#00D4FF'];
+  const genre = String(game.genre || '').toLowerCase();
+  const mechanic = String(game.mechanic || '').toLowerCase();
+  let scene = '';
+  if (genre.includes('horror')) {
+    scene += '<circle cx="720" cy="105" r="66" fill="#fff" opacity=".18"/>' + '<path d="M545 438V285l120-104 120 104v153Z" fill="#080A12" opacity=".82"/>' + '<circle cx="628" cy="315" r="9" fill="#FF4D67"/><circle cx="705" cy="315" r="9" fill="#FF4D67"/>' + '<path d="M620 350q46 35 92 0" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="8"/>';
+  } else if (genre.includes('racing') || genre.includes('action')) {
+    scene += '<path d="M545 500C615 380 695 225 870 120c24 83 10 167-43 239-74 102-165 156-282 141Z" fill="#080A12" opacity=".82"/>' + '<path d="M605 495Q720 292 875 168" stroke="#fff" stroke-opacity=".23" stroke-width="12" stroke-dasharray="30 22" fill="none"/>' + '<path d="M670 404l92-44 79 35-95 47z" fill="'+palette[1]+'"/>' + '<circle cx="700" cy="447" r="20" fill="#090B11"/><circle cx="820" cy="394" r="20" fill="#090B11"/>';
+  } else if (genre.includes('sports')) {
+    scene += '<rect x="550" y="165" width="300" height="300" rx="28" fill="#080A12" opacity=".48"/>' + '<path d="M570 445V190h260v255M700 445V320m-70 0h140" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="8"/>' + '<circle cx="700" cy="320" r="62" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="7"/>' + '<circle cx="764" cy="250" r="31" fill="'+palette[1]+'"/>';
+  } else if (genre.includes('challenge') || ['rhythm','reaction','target','typing','stack','merge'].includes(mechanic)) {
+    scene += '<rect x="545" y="155" width="310" height="325" rx="34" fill="#080A12" opacity=".54"/>' + '<circle cx="700" cy="317" r="108" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="22"/>' + '<circle cx="700" cy="317" r="74" fill="none" stroke="'+palette[1]+'" stroke-opacity=".82" stroke-width="16"/>' + '<circle cx="700" cy="317" r="38" fill="'+palette[0]+'"/>' + '<path d="M575 510h250" stroke="#fff" stroke-opacity=".25" stroke-width="10"/>';
+  } else if (genre.includes('adventure')) {
+    scene += '<path d="M520 490 630 292 705 390 790 215 890 490Z" fill="#080A12" opacity=".82"/>' + '<path d="M630 292 675 368 710 322 784 490H585Z" fill="'+palette[1]+'" opacity=".48"/>' + '<circle cx="775" cy="120" r="42" fill="#fff" opacity=".22"/>';
+  } else if (genre.includes('simulation')) {
+    scene += '<path d="M535 465V290l74-52 74 52v175Z" fill="#080A12" opacity=".8"/>' + '<path d="m610 290 82-58 82 58v175H610Z" fill="'+palette[0]+'" opacity=".48"/>' + '<path d="M558 328h40v40h-40zm90 0h40v40h-40zm90 0h40v40h-40z" fill="#fff" opacity=".28"/>';
+  } else {
+    scene += '<rect x="555" y="170" width="300" height="290" rx="36" fill="#080A12" opacity=".46"/>' + '<rect x="590" y="210" width="92" height="92" rx="20" fill="'+palette[0]+'"/>' + '<rect x="728" y="210" width="92" height="92" rx="20" fill="'+palette[1]+'"/>' + '<rect x="590" y="340" width="92" height="92" rx="20" fill="'+palette[1]+'" opacity=".65"/>' + '<rect x="728" y="340" width="92" height="92" rx="20" fill="'+palette[0]+'" opacity=".8"/>';
+  }
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">' +
+    '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+palette[0]+'"/><stop offset="1" stop-color="'+palette[1]+'"/></linearGradient></defs>' +
+    '<rect width="900" height="560" rx="36" fill="url(#bg)"/>' +
+    '<circle cx="780" cy="90" r="190" fill="#fff" opacity=".08"/>' + scene +
+    '<rect x="30" y="30" width="840" height="500" rx="30" fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="2"/>' +
+    '<text x="56" y="112" fill="#fff" font-family="Arial,sans-serif" font-size="42" font-weight="800">'+esc(game.title)+'</text>' +
+    '<text x="58" y="149" fill="#fff" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2" opacity=".7">'+esc(game.genre)+' · '+esc(game.difficulty)+'</text>' +
+  '</svg>';
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
 }
-
 function gameCard(game) {
   const favorite = profile.get().favorites?.includes(game.slug);
   const badge = game.challenge ? '⚡ DÉFI' : game.multiplayer ? '● MULTI' : game.featured ? '★ TENDANCE' : 'JEU';
@@ -136,6 +142,7 @@ function mountShell() {
     go(value ? 'games?search=' + encodeURIComponent(value) : 'games');
   });
 
+  document.querySelectorAll('#nav a').forEach((link) => link.addEventListener('click', () => document.querySelector('#nav').classList.remove('open')));
   document.querySelector('#settings').addEventListener('click', openSettings);
   return contentRoot;
 }
@@ -417,6 +424,8 @@ async function playPage(root, game) {
 
 function createRoomForm(root) {
   const publicRooms = localRooms.list();
+  const params = new URLSearchParams(location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?') + 1) : '');
+  const requestedGame = params.get('game') || '';
 
   root.innerHTML = `
     <section class="page-head big-head">
@@ -434,7 +443,7 @@ function createRoomForm(root) {
         <h2>Créer une partie</h2>
         <div class="room-form">
           <label>Jeu
-            <select id="room-game">${games.filter((game) => game.multiplayer).map((game) => `<option value="${esc(game.slug)}">${esc(game.title)}</option>`).join('')}</select>
+            <select id="room-game">${games.filter((game) => game.multiplayer).map((game) => `<option value="${esc(game.slug)}" ${game.slug === requestedGame ? 'selected' : ''}>${esc(game.title)}</option>`).join('')}</select>
           </label>
           <label>Pseudo<input id="room-name" value="${esc(profile.get().name)}" maxlength="24" autocomplete="nickname"></label>
           <label>Joueurs
@@ -494,8 +503,13 @@ async function roomsPage(root) {
   const query = new URLSearchParams(hashQuery);
   const joinCode = query.get('join');
 
-  if (joinCode && !remoteRoom && !localRooms.get(joinCode) && serverUrl()) {
-    await connectRemote('join', joinCode);
+  if (joinCode && !remoteRoom) {
+    const localInvitation = localRooms.get(joinCode);
+    if (localInvitation) {
+      localRooms.join(joinCode, profile.get().name);
+    } else if (serverUrl()) {
+      await connectRemote('join', joinCode);
+    }
   }
 
   const active = remoteRoom || localRooms.get(localRooms.current());
@@ -553,11 +567,11 @@ async function roomsPage(root) {
       <aside class="room-side">
         <section class="panel">
           <div class="section-head">
-            <div><span class="kicker">EN DIRECT</span><h2>Joueurs connectés <em>${remoteOnline.length}</em></h2></div>
+            <div><span class="kicker">EN DIRECT</span><h2>Joueurs dans la room <em>${players.length}</em></h2></div>
             <button class="link-btn" id="refresh-online">Actualiser</button>
           </div>
-          <div class="online-list">
-            ${remoteOnline.length ? remoteOnline.map((player) => `<div class="online-row"><i class="online-dot"></i><span>${esc(player.name)}</span><small>${player.room ? 'Dans une room' : 'Menu'}</small></div>`).join('') : '<div class="empty">Le serveur n’est pas connecté.</div>'}
+          <div class="online-list room-presence">
+            ${players.length ? players.map((player) => `<div class="online-row"><i class="online-dot"></i><span>${esc(player.name)}</span><small>${player.host ? 'Hôte' : player.ready ? 'Prêt' : 'En attente'}</small></div>`).join('') : '<div class="empty">Aucun joueur dans cette room.</div>'}
           </div>
         </section>
 
@@ -695,7 +709,11 @@ async function createRoom() {
   profile.update({ name: name.slice(0, 24) });
 
   if (serverUrl()) {
-    await connectRemote('create', { game, name: name.slice(0, 24), max, privateRoom });
+    const connected = await connectRemote('create', { game, name: name.slice(0, 24), max, privateRoom });
+    if (!connected) {
+      localRooms.create(game, name, max, privateRoom);
+      render();
+    }
   } else {
     localRooms.create(game, name, max, privateRoom);
     render();
@@ -707,10 +725,15 @@ async function joinByCode(forcedCode) {
   const code = String(forcedCode || input?.value || '').trim().toUpperCase();
   if (!code) return;
 
+  const localRoom = localRooms.get(code);
+  if (localRoom && localRoom.status === 'WAITING') {
+    if (localRooms.join(code, profile.get().name)) render();
+    else alert('Impossible de rejoindre cette room.');
+    return;
+  }
   if (serverUrl()) {
-    await connectRemote('join', code);
-  } else if (localRooms.join(code, profile.get().name)) {
-    render();
+    const connected = await connectRemote('join', code);
+    if (!connected) alert('Room introuvable ou serveur multiplayer indisponible.');
   } else {
     alert('Room introuvable, verrouillée ou pleine.');
   }
@@ -756,11 +779,12 @@ async function connectRemote(action, payload) {
     } else {
       client.join(payload, profile.get().name);
     }
+    return true;
   } catch (error) {
     console.error('LifeGame remote connection error:', error);
     remoteClient?.close();
     remoteClient = null;
-    alert('Connexion au serveur multiplayer impossible. Vérifie son URL.');
+    return false;
   }
 }
 
@@ -814,7 +838,9 @@ function render() {
   const root = mountShell();
   const currentRoute = route();
 
-  root.querySelectorAll('[href^="#"]').forEach((link) => link.parentElement?.classList.remove('active'));
+  const routeLinks = root.querySelectorAll('#nav a');
+  const navTarget = currentRoute.name === 'home' ? '#home' : (currentRoute.name === 'games' || currentRoute.name === 'game' || currentRoute.name === 'play') ? '#games' : '#'+currentRoute.name;
+  routeLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === navTarget));
 
   switch (currentRoute.name) {
     case 'home':
@@ -858,7 +884,9 @@ window.addEventListener('hashchange', render);
 window.addEventListener('storage', (event) => {
   if (event.key?.startsWith('lifegame:')) render();
 });
-window.addEventListener('lifegame:profile', render);
+window.addEventListener('lifegame:profile', () => {
+  if (route().name !== 'play') render();
+});
 window.addEventListener('lifegame:rooms', () => {
   if (route().name === 'rooms' && !remoteRoom) render();
 });
