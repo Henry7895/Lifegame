@@ -520,6 +520,8 @@ async function roomsPage(root) {
 
   const game = bySlug(active.gameSlug);
   const players = active.players || [];
+  const remote = Boolean(remoteRoom);
+  const roomMessages = remote ? remoteChat : localRooms.chatHistory(active.code);
 
   root.innerHTML = `
     <section class="room-top">
@@ -578,14 +580,12 @@ async function roomsPage(root) {
         <section class="panel chat-panel">
           <div class="section-head"><div><span class="kicker">CHAT</span><h2>Salon</h2></div></div>
           <div class="chat-log">
-            ${remoteChat.length ? remoteChat.map((message) => `<div><b>${esc(message.name)}</b><span>${esc(message.text)}</span></div>`).join('') : '<div class="empty">Le chat apparaît quand le serveur est connecté.</div>'}
+            ${roomMessages.length ? roomMessages.map((message) => `<div><b>${esc(message.name)}</b><span>${esc(message.text)}</span></div>`).join('') : '<div class="empty">Aucun message pour le moment.</div>'}
           </div>
           <div class="chat-send"><input id="chat" maxlength="300" placeholder="Message…" autocomplete="off"><button class="btn small" id="send-chat">Envoyer</button></div>
         </section>
       </aside>
     </div>`;
-
-  const remote = Boolean(remoteRoom);
 
   root.querySelector('#ready').addEventListener('click', () => {
     if (remote) remoteClient?.ready();
@@ -814,7 +814,11 @@ async function sendChat() {
   const message = input?.value?.trim();
   if (!message) return;
   if (remoteClient) remoteClient.chat(message);
-  else alert('Le chat en direct nécessite le serveur multiplayer.');
+  else {
+    const code = localRooms.current();
+    if (code) localRooms.chat(code, profile.get().name, message);
+    if (route().name === 'rooms') render();
+  }
   if (input) input.value = '';
 }
 
@@ -888,6 +892,9 @@ window.addEventListener('lifegame:profile', () => {
   if (route().name !== 'play') render();
 });
 window.addEventListener('lifegame:rooms', () => {
+  if (route().name === 'rooms' && !remoteRoom) render();
+});
+window.addEventListener('lifegame:room-chat', () => {
   if (route().name === 'rooms' && !remoteRoom) render();
 });
 
