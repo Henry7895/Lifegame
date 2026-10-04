@@ -8,8 +8,6 @@
 <meta name="color-scheme" content="dark">
 <meta property="og:title" content="LifeGame">
 <meta property="og:description" content="Une plateforme de jeux moderne et originale.">
-<link rel="stylesheet" href="./styles.css?v=f9b516a">
-<link rel="manifest" href="./manifest.webmanifest?v=f9b516a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%237C5CFF'/%3E%3Cpath d='M19 16v32h10V37h8c10 0 15-5 15-11S47 16 37 16H19zm10 8h8c4 0 6 1 6 4s-2 4-6 4h-8v-8z' fill='white'/%3E%3C/svg%3E">
 <title>LifeGame</title>
 </head>
@@ -18,10 +16,8 @@
 
 <script>
 (async () => {
+  const version = 'f9b516a';
   try {
-    // Anciennes versions de LifeGame ont utilisé un Service Worker agressif.
-    // On nettoie ses caches avant de charger le nouveau JavaScript pour éviter
-    // qu'un vieux app.js ne soit servi à la place du fichier déployé.
     if ('serviceWorker' in navigator) {
       const registrations = await navigator.serviceWorker.getRegistrations();
       await Promise.all(registrations.map((registration) => registration.unregister()));
@@ -35,21 +31,22 @@
       );
     }
 
-    await import('./app.js?v=f9b516a');
+    for (const [rel, href] of [
+      ['stylesheet', './styles.css?v=' + version],
+      ['manifest', './manifest.webmanifest?v=' + version]
+    ]) {
+      const link = document.createElement('link');
+      link.rel = rel;
+      link.href = href;
+      document.head.appendChild(link);
+    }
+
+    await import('./app.js?v=' + version);
   } catch (error) {
     console.error('LifeGame boot error:', error);
-    const box = document.querySelector('#app');
     const details = error && error.message ? String(error.message) : 'Erreur inconnue';
-    box.innerHTML = `
-      <main class="boot-error">
-        <div class="boot-card">
-          <div class="boot-logo">L</div>
-          <h1>LifeGame ne peut pas démarrer</h1>
-          <p>Le chargement de la plateforme a rencontré une erreur.</p>
-          <code>${details.replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}</code>
-          <button onclick="location.reload()">Réessayer</button>
-        </div>
-      </main>`;
+    const safe = details.replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    document.querySelector('#app').innerHTML = '<main class="boot-error"><div class="boot-card"><div class="boot-logo">L</div><h1>LifeGame ne peut pas démarrer</h1><p>Le chargement de la plateforme a rencontré une erreur.</p><code>'+safe+'</code><button onclick="location.reload()">Réessayer</button></div></main>';
   }
 })();
 </script>
