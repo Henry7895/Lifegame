@@ -33,7 +33,11 @@ const server=http.createServer(async(req,res)=>{
  if(req.method==="GET"&&url.pathname==="/api/online"){return sendJson(res,200,{players:presence(),count:clients.size})}
  if(req.method==="GET"&&url.pathname==="/api/rooms"){return sendJson(res,200,{rooms:publicRooms()})}
  if(req.method==="GET"&&url.pathname==="/api/leaderboards"){
-   const game=url.searchParams.get("game")||"global";const rows=(scores[game]||[]).slice(0,100);return sendJson(res,200,{game,rows});
+   const game=url.searchParams.get("game")||"global";
+   const rows=game==="global"
+     ? Object.values(scores).flat().sort((a,b)=>b.score-a.score).slice(0,100)
+     : (scores[game]||[]).slice(0,100);
+   return sendJson(res,200,{game,rows});
  }
  if(req.method==="POST"&&url.pathname==="/api/scores"){
    const ip=req.socket.remoteAddress||"unknown";if(!okRate(ip))return sendJson(res,429,{error:"rate_limited"});
