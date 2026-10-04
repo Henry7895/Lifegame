@@ -1,0 +1,1 @@
+export default {id:"058",slug:"emoji-panic",title:"Emoji Panic",description:"Tape le mot affiché avant que la série de défis ne disparaisse.",genre:"Challenges",mechanic:"typing",playersMin:1,playersMax:1,multiplayer:false,featured:true,challenge:true,difficulty:"Moyen",rating:4.6,playCount:0,gradient:["#FFC857","#35D07F"],tags:["clavier","viral","rapidité"]}
