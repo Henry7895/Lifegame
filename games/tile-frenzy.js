@@ -1,0 +1,1 @@
+export default {id:"059",slug:"tile-frenzy",title:"Tile Frenzy",description:"Détruis la série de cibles mobiles le plus vite possible.",genre:"Challenges",mechanic:"target",playersMin:1,playersMax:4,multiplayer:true,featured:true,challenge:true,difficulty:"Difficile",rating:4.8,playCount:0,gradient:["#00D4FF","#7C5CFF"],tags:["cibles","arcade","score"]}
