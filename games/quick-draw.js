@@ -1,0 +1,1 @@
+export default {id:"056",slug:"quick-draw",title:"Quick Draw",description:"Attends le signal et clique avant tout le monde dans ce duel de réflexes.",genre:"Challenges",mechanic:"reaction",playersMin:1,playersMax:2,multiplayer:true,featured:true,challenge:true,difficulty:"Difficile",rating:4.8,playCount:0,gradient:["#FF4D67","#FFC857"],tags:["réflexes","duel","viral"]}
